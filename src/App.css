@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+body{
+   /* font-family: "Source Serif 4", serif; */
+   font-family: "Jost", sans-serif;
+}
+@theme {
+    --color-brandOrange: #f77f00;
+    --color-brandRed: #d62828;
+    --color-brandBlue: #003049;
+    --color-brandYellow: #fcbf49;
+    /* --color-brandBg: #eae2b7; */
+    --color-brandBg: #f5f1e7;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
