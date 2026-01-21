@@ -1,6 +1,8 @@
 import AboutSection from "../components/AboutSection";
 import Comparison from "../components/Comparision";
 import Hero from "../components/Hero";
+import CircularGallery from "../components/HomeGrid";
+import MissionVisionValues from "../components/MissionVision";
 import StickyDiv from "../components/StickyDiv";
 import TrainFoodSection from "../components/TrainSection";
 
@@ -44,13 +46,15 @@ const Home = () => {
     <div>
       <Hero />
       {/* <AboutSection /> */}
-      <StickyDiv
-        philo="Delivering home-style meals with love and cultural authenticity."
-        cardDetails={cardDetails} 
-      />
-      <TrainFoodSection />
+      <MissionVisionValues/>
+
+<CircularGallery/>
+
+      {/* <TrainFoodSection /> */}
       {/* <WhySelfEy /> */}
-      <Comparison />
+      {/* <Comparison /> */}
+
+
     </div>
   );
 };

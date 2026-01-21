@@ -168,11 +168,10 @@
 //   );
 // };
 
-// export default Navbar;
+
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
-// Importing icons for a professional look
 import { 
   UtensilsCrossed, 
   HeartHandshake, 
@@ -186,13 +185,15 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [serviceOpen, setServiceOpen] = useState(false);
 
+  // 1. Rearranged and added Subscription
   const navItems = [
     { to: "/", label: "Home" },
     { to: "about-us", label: "About Us" },
+    // Service is handled separately due to the dropdown logic
     { to: "contact-us", label: "Contact Us" },
+    { to: "subscription", label: "Subscription" },
   ];
 
-  // Added prefix icons to service items
   const serviceItems = [
     { to: "home-chef", label: "Home Chef", icon: <UtensilsCrossed size={18} /> },
     { to: "care-taker", label: "Caretaker", icon: <HeartHandshake size={18} /> },
@@ -212,14 +213,9 @@ const Navbar = () => {
     exit: { opacity: 0, y: 10, scale: 0.95, transition: { duration: 0.15 } }
   };
 
-  const itemVariants = {
-    hidden: { opacity: 0, x: -10 },
-    visible: { opacity: 1, x: 0 }
-  };
-
   return (
     <header className="sticky top-0 z-50 w-full border-b border-gray-100 bg-white/90 backdrop-blur-md">
-      <div className=" flex items-center  px-6 py-4 mx-18">
+      <div className="flex items-center justify-between px-4 sm:px-6 lg:px-25 py-4 ">
         
         {/* Brand */}
         <NavLink to="/" className="text-3xl font-black tracking-tighter text-brandOrange">
@@ -227,35 +223,15 @@ const Navbar = () => {
         </NavLink>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-4">
-          <ul className="flex items-center gap-2 text-base font-medium px-20">
-            {navItems.map((item) => (
-              <li key={item.to}>
-                <NavLink
-                  to={item.to}
-                  className={({ isActive }) =>
-                    `relative overflow-hidden group px-5 py-2.5 flex flex-col justify-center rounded-lg transition-colors ${
-                      isActive ? "text-brandRed" : "text-gray-600 hover:text-white"
-                    }`
-                  }
-                >
-                  <span className="relative z-10 transition-transform duration-300 group-hover:-translate-y-1">
-                    {item.label}
-                  </span>
-<div className="absolute inset-0 z-0 
-bg-gradient-to-r from-orange-500 via-brandOrange to-yellow-400
-translate-y-full group-hover:translate-y-0
-rounded-t-[40%]
-transition-all duration-700 ease-out" />
-
-
-
-
-                </NavLink>
-              </li>
+        <nav className="hidden md:flex items-center gap-2">
+          <ul className="flex items-center gap-1 text-base font-medium">
+            
+            {/* Home & About Us */}
+            {navItems.slice(0, 2).map((item) => (
+              <li key={item.to}><NavItem item={item} /></li>
             ))}
 
-            {/* Service Dropdown */}
+            {/* Service Dropdown (Middle) */}
             <li
               className="relative"
               onMouseEnter={() => setServiceOpen(true)}
@@ -275,34 +251,35 @@ transition-all duration-700 ease-out" />
                     initial="hidden"
                     animate="visible"
                     exit="exit"
-                    className="absolute top-full left-0 w-72 rounded-2xl bg-white shadow-[0px_20px_50px_rgba(0,0,0,0.1)] border border-gray-100 py-3 mt-2 overflow-hidden"
+                    className="absolute top-full left-0 w-72 rounded-2xl bg-white shadow-xl border border-gray-100 py-3 mt-2 overflow-hidden"
                   >
                     {serviceItems.map((item) => (
-                      <motion.li key={item.to} variants={itemVariants}>
+                      <li key={item.to}>
                         <NavLink
                           to={item.to}
                           className="flex items-center gap-3 px-5 py-3.5 text-sm font-medium text-gray-700 hover:bg-brandOrange hover:text-white transition-all duration-200 group"
                         >
-                          <span className="text-brandOrange group-hover:text-white transition-colors">
-                            {item.icon}
-                          </span>
-                          <span className="group-hover:translate-x-1 transition-transform">
-                            {item.label}
-                          </span>
+                          <span className="text-brandOrange group-hover:text-white transition-colors">{item.icon}</span>
+                          <span className="group-hover:translate-x-1 transition-transform">{item.label}</span>
                         </NavLink>
-                      </motion.li>
+                      </li>
                     ))}
                   </motion.ul>
                 )}
               </AnimatePresence>
             </li>
+
+            {/* Contact Us & Subscription */}
+            {navItems.slice(2).map((item) => (
+              <li key={item.to}><NavItem item={item} /></li>
+            ))}
           </ul>
         </nav>
 
-        {/* Mobile Hamburger (Custom Shutter Icon) */}
+        {/* Mobile Hamburger */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="md:hidden h-11 w-11 rounded-xl bg-gray-50 flex flex-col items-center justify-center gap-1.5 active:scale-95 transition-transform"
+          className="md:hidden h-11 w-11 rounded-xl bg-gray-50 flex flex-col items-center justify-center gap-1.5"
         >
           <motion.span animate={{ rotate: menuOpen ? 45 : 0, y: menuOpen ? 8 : 0 }} className="h-0.5 w-6 bg-brandOrange block" />
           <motion.span animate={{ opacity: menuOpen ? 0 : 1 }} className="h-0.5 w-6 bg-brandOrange block" />
@@ -310,71 +287,43 @@ transition-all duration-700 ease-out" />
         </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu Logic */}
       <AnimatePresence>
         {menuOpen && (
           <>
-            <motion.div
-              className="fixed inset-0 bg-brandBg/40 backdrop-blur-md z-40"
-              onClick={() => setMenuOpen(false)}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-            />
-
-            <motion.nav
-              className="fixed right-0 top-0 h-full w-[85%] max-w-sm bg-white z-50 shadow-2xl p-8"
-              initial={{ x: "100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "100%" }}
-              transition={{ type: "spring", damping: 25, stiffness: 200 }}
+            <motion.div className="fixed inset-0 bg-black/20 backdrop-blur-sm z-40" onClick={() => setMenuOpen(false)} />
+            <motion.nav 
+              initial={{ x: "100%" }} animate={{ x: 0 }} exit={{ x: "100%" }}
+              className="fixed right-0 top-0 h-full w-[80%] bg-white z-50 p-8 shadow-2xl"
             >
-              <ul className="space-y-6 mt-10">
-                {navItems.map((item) => (
-                  <li key={item.to}>
-                    <NavLink
-                      to={item.to}
-                      onClick={() => setMenuOpen(false)}
-                      className="text-2xl font-bold text-gray-800"
-                    >
-                      {item.label}
-                    </NavLink>
-                  </li>
+              <ul className="space-y-6 mt-12">
+                {/* Home & About */}
+                {navItems.slice(0, 2).map((item) => (
+                  <li key={item.to}><MobileLink item={item} setMenuOpen={setMenuOpen} /></li>
                 ))}
-
-                <li className="pt-6 border-t border-gray-100">
-                  <button
-                    onClick={() => setServiceOpen(!serviceOpen)}
-                    className="flex w-full items-center justify-between text-2xl font-bold text-gray-800"
-                  >
-                    Services
-                    <ChevronDown className={`transition-transform ${serviceOpen ? "rotate-180" : ""}`} />
+                
+                {/* Service Toggle */}
+                <li>
+                  <button onClick={() => setServiceOpen(!serviceOpen)} className="flex w-full justify-between text-2xl font-bold text-gray-800">
+                    Service <ChevronDown className={serviceOpen ? "rotate-180" : ""} />
                   </button>
-
-                  <AnimatePresence>
-                    {serviceOpen && (
-                      <motion.ul
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        className="pl-4 mt-6 space-y-5 overflow-hidden"
-                      >
-                        {serviceItems.map((item) => (
-                          <li key={item.to}>
-                            <NavLink
-                              to={item.to}
-                              onClick={() => setMenuOpen(false)}
-                              className="flex items-center gap-4 text-lg font-medium text-gray-500"
-                            >
-                              <span className="text-brandOrange">{item.icon}</span>
-                              {item.label}
-                            </NavLink>
-                          </li>
-                        ))}
-                      </motion.ul>
-                    )}
-                  </AnimatePresence>
+                  {serviceOpen && (
+                    <ul className="pl-4 mt-4 space-y-4">
+                      {serviceItems.map(s => (
+                        <li key={s.to}>
+                           <NavLink to={s.to} onClick={() => setMenuOpen(false)} className="flex items-center gap-3 text-lg text-gray-500">
+                            {s.icon} {s.label}
+                           </NavLink>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </li>
+
+                {/* Contact & Subscription */}
+                {navItems.slice(2).map((item) => (
+                  <li key={item.to}><MobileLink item={item} setMenuOpen={setMenuOpen} /></li>
+                ))}
               </ul>
             </motion.nav>
           </>
@@ -383,5 +332,28 @@ transition-all duration-700 ease-out" />
     </header>
   );
 };
+
+// Reusable Desktop Link Component
+const NavItem = ({ item }) => (
+  <NavLink
+    to={item.to}
+    className={({ isActive }) =>
+      `relative overflow-hidden group px-6 py-2.5 flex items-center justify-center rounded-xl transition-all ${
+        isActive ? "text-brandOrange font-bold" : "text-gray-600"
+      }`
+    }
+  >
+    <span className="relative z-10 group-hover:text-white transition-colors duration-500">{item.label}</span>
+    <div className="absolute inset-0 z-0 bg-gray-100 -translate-x-full group-hover:translate-x-0 transition-transform duration-300" />
+    <div className="absolute inset-0 z-0 bg-gradient-to-r from-brandOrange to-orange-400 -translate-x-full group-hover:translate-x-0 transition-transform duration-500 delay-75" />
+  </NavLink>
+);
+
+// Reusable Mobile Link Component
+const MobileLink = ({ item, setMenuOpen }) => (
+  <NavLink to={item.to} onClick={() => setMenuOpen(false)} className="text-2xl font-bold text-gray-800 block">
+    {item.label}
+  </NavLink>
+);
 
 export default Navbar;

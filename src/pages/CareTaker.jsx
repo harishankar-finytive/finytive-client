@@ -1,6 +1,6 @@
 import React from 'react'
 import Banner from "../components/banner/Banner";
-import Care from "../assets/images/CareTakerHeroImage.png";
+import Care from "../assets/images/CareTakerHero.png";
 import TrainScroller from '../components/TrainScroller';
 
 import FeatureSticky from "../components/ui/FeatureSticky";
@@ -26,7 +26,7 @@ const caretakerServices = [
   highlightedText="Care Taker Services"
   description="Enabling compassionate individuals and homemakers to offer reliable caretaker services online. We help you present your skills professionally, connect with families in need, and grow a trusted caregiving service with ease and confidence."
   buttonText="Join as a Caretaker"
-  // image={Care}
+  image={Care}
   imageSize="w-70"
   stats={[
     { label: "Active Caretakers", value: "1,200+" },
@@ -58,7 +58,7 @@ const caretakerServices = [
       />
 <TrainScroller 
   items={caretakerServices}
-  title="Self-Ey CareTaker Categories"
+  title=" CareTaker Categories"
   stationName="Self-Ey Junction"
   speedSeconds={28}
 />

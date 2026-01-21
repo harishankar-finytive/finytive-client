@@ -20,6 +20,8 @@ export const HOME_TABS = [
     label: "Mechanics",
     subtitle:
       "Instant automobile repair services delivered by trusted mechanics at your location.",
+    highlightPhrase: "trusted mechanics at your location",
+
     cards: [
       {
         cardStep: "01",

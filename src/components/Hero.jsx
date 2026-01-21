@@ -1,5 +1,5 @@
 import { MotionConfig, motion } from "framer-motion";
-import heroImage from "../assets/images/whoweare.png";
+import heroImage from "../assets/images/hero1.png";
 
 /* Variants */
 const container = {
@@ -54,10 +54,6 @@ export default function Hero() {
             >
               Who We Are
             </motion.h1>
-
-            <motion.span className="text-xl font-medium" variants={item}>
-              Built on real skills — empowering real people to earn with pride.
-            </motion.span>
 
             <motion.p
               className="font-primary mt-4 max-w-2xl text-lg text-gray-800/90"

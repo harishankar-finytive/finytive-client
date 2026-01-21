@@ -15,6 +15,7 @@ import  CareTaker  from './pages/CareTaker'
 import EventEntertainment from './pages/EventEntertainment'
 import ActingDriver from './pages/ActingDriver'
 import InstantAutoMobileRepair from './pages/InstantAutoMobileRepair'
+import Subscription from './pages/SubscriptionPage'
 
 function App() {
 
@@ -24,6 +25,8 @@ function App() {
         <Route index element={<Home />} />
         <Route path='contact-us' element={<ContactPage />} />
         <Route path='about-us' element={<AboutUs />} />
+        <Route path='subscription' element={<Subscription/>}/>
+
         <Route path="*" element={<NotFound />} />
         {/*service */}
         <Route path='home-chef' element={< HomeChef/>}/>
@@ -31,6 +34,7 @@ function App() {
         <Route path='event-entertainment' element={< EventEntertainment/>}/>
         <Route path='acting-driver' element={< ActingDriver/>}/>
         <Route path='auto-repair' element={< InstantAutoMobileRepair/>}/>
+
 
 
 

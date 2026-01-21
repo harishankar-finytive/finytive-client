@@ -20,6 +20,8 @@ export const HOME_TABS = [
   id: "customer",
   label: "Customer",
   subtitle: "Delivering heartfelt care with home-style warmth and cultural authenticity.",
+  highlightPhrase: "heartfelt care with home-style warmth and cultural authenticity",
+
   cards: [
     {
       cardStep: "01",

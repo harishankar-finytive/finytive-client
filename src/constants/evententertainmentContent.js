@@ -18,8 +18,8 @@ export const HOME_TABS = [
   {
     id: "audience",
     label: "Audience",
-    subtitle:
-      "Creating unforgettable entertainment experiences with seamless booking and trusted performers.",
+    subtitle:"Creating unforgettable entertainment experiences with seamless booking and trusted performers.",
+    highlightPhrase: "Creating unforgettable entertainment experiences",
     cards: [
       {
         cardStep: "01",

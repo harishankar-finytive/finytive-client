@@ -1,6 +1,6 @@
 import ContactUs from "../components/ContactUs"
 import Banner from "../components/banner/Banner";
-import Contact from"../assets/images/Contact.png"
+import Contact from"../assets/images/ContactBanner.png"
 
 const ContactPage = () => {
   return (
@@ -13,7 +13,7 @@ const ContactPage = () => {
   highlightedText="Hear From You"
   description="Have questions, need support, or want to partner with HomeChef? Reach out to us anytime. Our team is here to help you with onboarding, orders, and growing your homemade food business."
   buttonText="Contact Us"
-  // image={Contact}
+  image={Contact}
   imageSize="w-120"
   stats={[
     { label: "Support Availability", value: "24/7" },

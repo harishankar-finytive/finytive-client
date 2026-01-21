@@ -71,7 +71,7 @@ export default function WhoWhatInteractive() {
 
   return (
     <section id="who-what" className="w-full bg-white">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-12 py-14 sm:py-16">
+      <div className=" px-4 sm:px-6 lg:px-25 sm:py-16">
         {/* Head */}
         <div className="text-center">
           <h2 className="relative inline-block text-2xl sm:text-3xl font-bold tracking-tight text-gray-900">

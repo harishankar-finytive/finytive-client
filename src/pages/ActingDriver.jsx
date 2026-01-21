@@ -1,6 +1,6 @@
 import React from 'react'
 import Banner from "../components/banner/Banner";
-import Acting from "../assets/images/ActingDriver.png";
+import Acting from "../assets/images/ActingDriverBanners.png";
 import TrainScroller from '../components/TrainScroller';
 
 import FeatureSticky from "../components/ui/FeatureSticky";
@@ -30,7 +30,7 @@ export default function ActingDriver ()  {
   highlightedText="Earn Your Way"
   description="Supporting responsible drivers to offer flexible, on-demand driving services through digital platforms. We help you showcase reliability, reach customers easily, and build a steady income with professionalism and trust."
   buttonText="Start Driving Today"
-  // image={Acting}
+  image={Acting}
   imageSize="w-[300px] md:w-[360px]"
   stats={[
     { label: "Active Drivers", value: "8,500+" },

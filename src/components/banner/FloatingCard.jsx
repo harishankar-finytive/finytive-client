@@ -1,18 +1,20 @@
 const FloatingCard = ({ position, title, stats, text, icon, children }) => {
   return (
     <div
-      className={`absolute ${position} bg-white rounded-xl shadow-lg p-4 text-sm `}
+      className={`absolute ${position} bg-white rounded-xl shadow-lg p-4 text-sm`}
     >
+      {/* Title */}
       {title && (
         <div className="mb-2 font-semibold text-gray-800">
           {title}
         </div>
       )}
 
+      {/* Stats */}
       {stats && (
         <div className="space-y-1 text-gray-600">
           {stats.map((item, index) => (
-            <div key={index} className="flex justify-between">
+            <div key={index} className="flex justify-between gap-4">
               <span>{item.label}</span>
               <span className="font-semibold">{item.value}</span>
             </div>
@@ -20,14 +22,21 @@ const FloatingCard = ({ position, title, stats, text, icon, children }) => {
         </div>
       )}
 
+      {/* Icon + Text Row */}
       {text && (
-        <div className="flex items-center gap-2 text-gray-700">
+        <div className="flex items-center gap-3 text-gray-700 mt-2 max-w-[220px]">
+          
+          {/* Icon */}
           {icon && (
-            <span className="w-5 h-5 flex items-center justify-center bg-brandOrange text-white rounded-full">
+            <span className="flex-shrink-0 w-6 h-6 flex items-center justify-center bg-brandOrange text-white rounded-full text-xs font-bold">
               ✓
             </span>
           )}
-          {text}
+
+          {/* Text */}
+          <span className="leading-snug">
+            {text}
+          </span>
         </div>
       )}
 

@@ -1,11 +1,11 @@
 import React from 'react'
 import Banner from "../components/banner/Banner";
-import Magic from "../assets/images/MagicianHeroImage.png";
+import Magic from "../assets/images/EventEntertainer.png";
 import TrainScroller from '../components/TrainScroller';
 
 import FeatureSticky from "../components/ui/FeatureSticky";
 import { HOME_TABS } from "../constants/evententertainmentContent";
-import stickeyImg from "../assets/images/magicianhero.png";
+import stickeyImg from "../assets/images/MagicianBanner.png";
 
 
 export default function EventEntertainment  () {
@@ -30,7 +30,7 @@ const entertainmentServices = [
         highlightedText=" Event Moments"
         description="Helping creative performers turn their passion for entertainment into a successful digital service. From hosting and music to party activities, we guide you to promote, manage, and grow your event entertainment business online."
         buttonText="Join as an Event Partner"
-        // image={Magic}
+        image={Magic}
         imageSize="w-270"
         stats={[
           { label: "Events Managed", value: "5,000+" },
@@ -62,10 +62,6 @@ const entertainmentServices = [
   speedSeconds={28}
 />
     
-
-
-
-
     </div>
   )
 }

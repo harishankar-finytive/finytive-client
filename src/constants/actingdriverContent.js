@@ -18,8 +18,9 @@ export const HOME_TABS = [
   {
     id: "drivers",
     label: "Drivers",
-    subtitle:
-      "Reliable part-time drivers to safely drive your vehicle whenever you need.",
+    subtitle:"Reliable part-time drivers to safely drive your vehicle whenever you need.",
+    highlightPhrase: "part-time drivers to safely drive your vehicle",
+
     cards: [
       {
         cardStep: "01",

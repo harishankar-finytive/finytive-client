@@ -44,7 +44,7 @@ const Banner = ({
         <div className="relative flex justify-center">
           
           {/* Gradient Circle */}
-          <div className="w-[420px] h-[420px] rounded-full bg-gradient-to-br from-brandOrange to-brandRed flex items-center justify-center">
+          <div className="w-[320px] h-[320px] rounded-full bg-gradient-to-br from-brandOrange to-brandRed flex items-center justify-center">
    <img
   src={image}
   alt="Banner Visual"
@@ -54,19 +54,19 @@ const Banner = ({
 
           {/* Floating Cards */}
           <FloatingCard
-            position="top-16 left-0"
+            position="top-3 -left-10"
             title="Overall Activity"
             stats={stats}
           />
 
           <FloatingCard
-            position="bottom-24 left-10"
+            position="bottom-2 -left-3"
             text={serviceText}
             icon
           />
 
           <FloatingCard
-            position="top-15 -right-23"
+            position="-top-2 -right-23"
             text={experienceText}
             icon
           />

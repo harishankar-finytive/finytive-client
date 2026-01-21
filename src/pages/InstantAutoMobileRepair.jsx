@@ -1,10 +1,10 @@
 import React from 'react'
-import auto from"../assets/images/actingdriverimg.png"
+import auto from"../assets/images/AutoRepair.png"
 import Banner from "../components/banner/Banner";
 import TrainScroller from '../components/TrainScroller';
 import FeatureSticky from "../components/ui/FeatureSticky";
 import { HOME_TABS } from "../constants/instantautomobilerepairContent";
-import stickeyImg from "../assets/images/actingdriverimg.png";
+import stickeyImg from "../assets/images/auto-driving.png";
 
 
 export default function InstantAutoMobileRepair ()  {
@@ -29,7 +29,7 @@ const mobileRepairServices = [
   highlightedText="Earn Independently"
   description="Supporting skilled technicians to offer fast, on-demand mobile repair services through digital platforms. We help you showcase expertise, reach customers easily, and build a steady income with professionalism and trust."
   buttonText="Start Driving Today"
-  // image={auto} 
+  image={auto} 
   imageSize="w-88"
   // replace with auto-driver image if available
   stats={[
@@ -61,7 +61,7 @@ const mobileRepairServices = [
   title="On-Demand Repair Specialities"
   subtitle="Expert mechanics arriving at your location with a full toolkit."
   stationName="Self-Ey Junction"
-  speedSeconds={20} 
+  speedSeconds={28} 
 />
     </div>
   )
