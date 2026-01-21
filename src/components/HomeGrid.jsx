@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
  import careImg from "../assets/images/CareTakerHeroImage.png";
  import eventImg from "../assets/images/magicianhero.png";
 
-import driverImg from "../assets/images/actingDriver.png";
+import driverImg from "../assets/images/ActingDriver.png";
 import repairImg from "../assets/images/auto-driving.png";
 import { useNavigate } from "react-router-dom";
 
