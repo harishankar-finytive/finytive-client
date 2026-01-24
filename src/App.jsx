@@ -16,6 +16,9 @@ import EventEntertainment from './pages/EventEntertainment'
 import ActingDriver from './pages/ActingDriver'
 import InstantAutoMobileRepair from './pages/InstantAutoMobileRepair'
 import Subscription from './pages/SubscriptionPage'
+import PrivacyPolicy from './pages/PrivacyPolicy'
+import TermsandCondition from './pages/TermsandCondition'
+
 
 function App() {
 
@@ -26,6 +29,10 @@ function App() {
         <Route path='contact-us' element={<ContactPage />} />
         <Route path='about-us' element={<AboutUs />} />
         <Route path='subscription' element={<Subscription/>}/>
+        <Route path='privacy-policy' element={<PrivacyPolicy/>}/>
+        <Route path='terms-condition' element={<TermsandCondition/>}/>
+
+
 
         <Route path="*" element={<NotFound />} />
         {/*service */}
@@ -34,12 +41,6 @@ function App() {
         <Route path='event-entertainment' element={< EventEntertainment/>}/>
         <Route path='acting-driver' element={< ActingDriver/>}/>
         <Route path='auto-repair' element={< InstantAutoMobileRepair/>}/>
-
-
-
-
-
-
 
       </Route>
 

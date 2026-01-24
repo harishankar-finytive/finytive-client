@@ -17,7 +17,7 @@ const services = [
     subtitle: "Fresh Meals",
     details: "Professional chefs preparing customized gourmet meals in your kitchen.",
     image: chefImg, // Replace with imported chefImg
-    color: "bg-amber-400",
+    color: "bg-brandOrange",
     path: "/home-chef",
 
   },
@@ -27,7 +27,7 @@ const services = [
     subtitle: "Elder Care",
     details: "Compassionate support for your loved ones with medical and daily needs.",
     image: careImg, // Replace with imported careImg
-    color: "bg-amber-400",
+    color: "bg-brandOrange",
     path: "/care-taker",
 
   },
@@ -37,7 +37,7 @@ const services = [
     subtitle: "Music & Shows",
     details: "Live performers and DJs to make your celebrations unforgettable.",
     image: eventImg, // Replace with imported eventImg
-    color: "bg-amber-400",
+    color: "bg-brandOrange",
     path: "/event-entertainment",
 
   },
@@ -47,7 +47,7 @@ const services = [
     subtitle: "On-Demand",
     details: "Reliable drivers available 24/7 for short trips or long journeys.",
     image: driverImg, // Replace with imported driverImg
-    color: "bg-amber-400",
+    color: "bg-brandOrange",
     path: "/acting-driver",
 
   },
@@ -57,7 +57,7 @@ const services = [
     subtitle: "Mobile Service",
     details: "On-the-spot vehicle diagnostics and repairs wherever you are.",
     image: repairImg, // Replace with imported repairImg
-    color: "bg-amber-400",
+    color: "bg-brandOrange",
     path: "/auto-repair",
 
   },
@@ -129,7 +129,7 @@ const ServiceCard = ({ service }) => {
                 {service.details}
               </p>
               <div className="mt-4 flex justify-center">
-                <div className={`w-8 h-8 rounded-full ${service.color} text-white flex items-center justify-center`}>
+                <div className={`w-8 h-8 rounded-full ${service.color} text-white bg-brandRed flex items-center justify-center`}>
                   →
                 </div>
               </div>
@@ -156,7 +156,7 @@ const ServicesGrid = () => {
     {/* Animated Underline */}
     <motion.span
       layoutId="underline-foundation"
-      className="absolute left-0 bottom-0 h-[4px] w-full bg-brandRed rounded-full"
+      className="absolute left-0 bottom-0 h-[4px] w-full bg-gradient-to-r from-brandOrange to-brandRed rounded-full"
       initial={{ scaleX: 0 }}
       whileInView={{ scaleX: 1 }}
       viewport={{ once: true }} // Ensures it only animates once when scrolling down

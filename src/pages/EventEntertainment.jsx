@@ -14,9 +14,9 @@ const entertainmentServices = [
   "Live Music & Bands",
   "Stand-up Comedy",
   "Magicians & Illusionists",
-  "Professional DJs",
+  "Beauty & Makeup Specialist",
   "Dance Troupes",
-  "Celebrity Appearances",
+  "Professional Mehndi Artist",
   "Photo & Video Booths",
   
 ];

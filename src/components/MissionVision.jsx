@@ -109,7 +109,7 @@ const MissionVisionValues = () => {
     {/* Animated Underline */}
     <motion.span
       layoutClass="underline-foundation"
-      className="absolute left-0 bottom-0 h-[4px] w-full bg-brandRed rounded-full"
+      className="absolute left-0 bottom-0 h-[4px] w-full bg-gradient-to-r from-brandOrange to-brandRed rounded-full"
       initial={{ scaleX: 0 }}
       whileInView={{ scaleX: 1 }}
       viewport={{ once: true }} // Ensures it only animates once when scrolling down

@@ -278,13 +278,13 @@ export default function ContactUsFast() {
         viewport={{ once: true, amount: 0.6 }}
       >
         <motion.h1
-          className="relative inline-block text-3xl sm:text-4xl font-extrabold tracking-tight text-gray-900"
+          className="relative inline-block text-3xl sm:text-5xl font-extrabold tracking-tight text-gray-900"
           variants={item}
         >
           Contact <span className="text-brandOrange">Self</span><span className="text-brandRed">-Ey</span>
           <motion.span
             layoutId="underline-contact"
-            className="absolute left-0 bottom-0 h-[3px] w-full bg-brandRed rounded-full"
+            className="absolute left-0 bottom-0 h-[3px] w-full bg-gradient-to-r from-brandOrange to-brandRed rounded-full"
             initial={{ scaleX: 0 }}
             whileInView={{ scaleX: 1 }}
             transition={{ duration: 1, ease: "easeInOut" }}

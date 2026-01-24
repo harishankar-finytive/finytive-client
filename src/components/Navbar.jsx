@@ -1,174 +1,4 @@
 
-
-// import React, { useState } from "react";
-// import { NavLink } from "react-router-dom";
-// import { AnimatePresence, motion } from "framer-motion";
-
-// const Navbar = () => {
-//   const [menuOpen, setMenuOpen] = useState(false);
-//   const [serviceOpen, setServiceOpen] = useState(false);
-
-//   const navItems = [
-//     { to: "/", label: "Home" },
-//     { to: "about-us", label: "About Us" },
-//     { to: "contact-us", label: "Contact Us" },
-//   ];
-
-//   const serviceItems = [
-//     { to: "services/home-chef", label: "Home Chef" },
-//     { to: "services/caretaker", label: "Caretaker" },
-//     { to: "services/event-entertainment", label: "Event Entertainment" },
-//     { to: "services/acting-driver", label: "Acting Driver" },
-//     { to: "services/auto-repair", label: "Instant Auto Mobile Repair" },
-//   ];
-
-//   return (
-//     <header className="sticky top-0 z-50 w-full border-b-2 border-brandBg bg-white">
-//       <div className="flex items-center  px-4 py-4 sm:px-6 lg:px-25">
-//         {/* Brand */}
-//         <NavLink to="/" className="text-3xl font-extrabold text-brandOrange">
-//           Self<span className="text-brandRed">-Ey</span>
-//         </NavLink>
-
-//         {/* Desktop Nav */}
-//         <nav className="hidden md:flex items-center gap-10">
-//           <ul className="flex ms-65 items-center gap-8 text-base">
-//             {navItems.map((item) => (
-//               <li key={item.to}>
-//                 <NavLink
-//                   to={item.to}
-//                   className={({ isActive }) =>
-//                     `hover:text-brandOrange transition ${
-//                       isActive ? "text-brandRed font-medium" : "text-gray-600"
-//                     }`
-//                   }
-//                 >
-//                   {item.label}
-//                 </NavLink>
-//               </li>
-//             ))}
-
-//             {/* Service Dropdown */}
-//             <li
-//               className="relative"
-//               onMouseEnter={() => setServiceOpen(true)}
-//               onMouseLeave={() => setServiceOpen(false)}
-//             >
-//               <span className="cursor-pointer text-gray-600 hover:text-brandOrange flex items-center gap-1">
-//                 Service
-//                 <svg className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-//                   <path d="M5.25 7.5L10 12.25 14.75 7.5" />
-//                 </svg>
-//               </span>
-
-//               <AnimatePresence>
-//                 {serviceOpen && (
-//                   <motion.ul
-//                     initial={{ opacity: 0, y: 10 }}
-//                     animate={{ opacity: 1, y: 0 }}
-//                     exit={{ opacity: 0, y: 10 }}
-//                     className="absolute top-8 left-0 w-60 rounded-xl bg-white shadow-xl border py-2"
-//                   >
-//                     {serviceItems.map((item) => (
-//                       <li key={item.to}>
-//                         <NavLink
-//                           to={item.to}
-//                           className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-brandOrange"
-//                         >
-//                           {item.label}
-//                         </NavLink>
-//                       </li>
-//                     ))}
-//                   </motion.ul>
-//                 )}
-//               </AnimatePresence>
-//             </li>
-//           </ul>
-//         </nav>
-
-//         {/* Mobile Hamburger */}
-//         <button
-//           onClick={() => setMenuOpen(!menuOpen)}
-//           className="md:hidden h-10 w-10 rounded-full border grid place-items-center"
-//         >
-//           ☰
-//         </button>
-//       </div>
-
-//       {/* Mobile Menu */}
-//       <AnimatePresence>
-//         {menuOpen && (
-//           <>
-//             <motion.div
-//               className="fixed inset-0 bg-black/30"
-//               onClick={() => setMenuOpen(false)}
-//               initial={{ opacity: 0 }}
-//               animate={{ opacity: 1 }}
-//               exit={{ opacity: 0 }}
-//             />
-
-//             <motion.nav
-//               className="fixed right-0 top-0 h-full w-72 bg-white shadow-xl p-4"
-//               initial={{ x: "100%" }}
-//               animate={{ x: 0 }}
-//               exit={{ x: "100%" }}
-//             >
-//               <ul className="space-y-2">
-//                 {navItems.map((item) => (
-//                   <li key={item.to}>
-//                     <NavLink
-//                       to={item.to}
-//                       onClick={() => setMenuOpen(false)}
-//                       className="block px-3 py-2 rounded hover:bg-gray-100"
-//                     >
-//                       {item.label}
-//                     </NavLink>
-//                   </li>
-//                 ))}
-
-//                 {/* Mobile Service Dropdown */}
-//                 <li>
-//                   <button
-//                     onClick={() => setServiceOpen(!serviceOpen)}
-//                     className="flex w-full items-center justify-between px-3 py-2 rounded hover:bg-gray-100"
-//                   >
-//                     Service
-//                     <span>{serviceOpen ? "−" : "+"}</span>
-//                   </button>
-
-//                   <AnimatePresence>
-//                     {serviceOpen && (
-//                       <motion.ul
-//                         initial={{ height: 0, opacity: 0 }}
-//                         animate={{ height: "auto", opacity: 1 }}
-//                         exit={{ height: 0, opacity: 0 }}
-//                         className="ml-4 mt-2 space-y-1 overflow-hidden"
-//                       >
-//                         {serviceItems.map((item) => (
-//                           <li key={item.to}>
-//                             <NavLink
-//                               to={item.to}
-//                               onClick={() => setMenuOpen(false)}
-//                               className="block px-3 py-2 text-sm rounded hover:bg-gray-50"
-//                             >
-//                               {item.label}
-//                             </NavLink>
-//                           </li>
-//                         ))}
-//                       </motion.ul>
-//                     )}
-//                   </AnimatePresence>
-//                 </li>
-//               </ul>
-//             </motion.nav>
-//           </>
-//         )}
-//       </AnimatePresence>
-//     </header>
-//   );
-// };
-
-
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
@@ -291,12 +121,23 @@ const Navbar = () => {
       <AnimatePresence>
         {menuOpen && (
           <>
-            <motion.div className="fixed inset-0 bg-black/20 backdrop-blur-sm z-40" onClick={() => setMenuOpen(false)} />
-            <motion.nav 
+<motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className="fixed inset-0 bg-slate-900/80 z-[60] md:hidden cursor-pointer"
+        onClick={() => setMenuOpen(false)}
+      >
+        {/* Subtle hint for the user: Clicking anywhere closes the menu */}
+        <div className="absolute top-8 left-5 text-white text-xs font-medium tracking-widest uppercase">
+          Tap to close
+        </div>
+      </motion.div>          
+       <motion.nav 
               initial={{ x: "100%" }} animate={{ x: 0 }} exit={{ x: "100%" }}
               className="fixed right-0 top-0 h-full w-[80%] bg-white z-50 p-8 shadow-2xl"
             >
-              <ul className="space-y-6 mt-12">
+              <ul className="space-y-6 mt-12 bg-orange-400 p-3">
                 {/* Home & About */}
                 {navItems.slice(0, 2).map((item) => (
                   <li key={item.to}><MobileLink item={item} setMenuOpen={setMenuOpen} /></li>
@@ -311,7 +152,7 @@ const Navbar = () => {
                     <ul className="pl-4 mt-4 space-y-4">
                       {serviceItems.map(s => (
                         <li key={s.to}>
-                           <NavLink to={s.to} onClick={() => setMenuOpen(false)} className="flex items-center gap-3 text-lg text-gray-500">
+                           <NavLink to={s.to} onClick={() => setMenuOpen(false)} className="flex items-center gap-3 text-lg text-gray-100">
                             {s.icon} {s.label}
                            </NavLink>
                         </li>
@@ -338,14 +179,19 @@ const NavItem = ({ item }) => (
   <NavLink
     to={item.to}
     className={({ isActive }) =>
-      `relative overflow-hidden group px-6 py-2.5 flex items-center justify-center rounded-xl transition-all ${
-        isActive ? "text-brandOrange font-bold" : "text-gray-600"
+      `relative group px-6 py-2.5 flex items-center justify-center transition-all ${
+        isActive ? "text-[#FF8A00] font-bold" : "text-gray-600 hover:text-[#FF8A00]"
       }`
     }
   >
-    <span className="relative z-10 group-hover:text-white transition-colors duration-500">{item.label}</span>
-    <div className="absolute inset-0 z-0 bg-gray-100 -translate-x-full group-hover:translate-x-0 transition-transform duration-300" />
-    <div className="absolute inset-0 z-0 bg-gradient-to-r from-brandOrange to-orange-400 -translate-x-full group-hover:translate-x-0 transition-transform duration-500 delay-75" />
+    <span className="relative z-10">{item.label}</span>
+
+    {/* The Sliding Underline */}
+    <div 
+      className="absolute bottom-1 left-0 h-[2px] w-full bg-gradient-to-r from-brandOrange to-brandRed
+                 scale-x-0 transition-transform duration-500 ease-out
+                 origin-right group-hover:origin-left group-hover:scale-x-100" 
+    />
   </NavLink>
 );
 
@@ -357,3 +203,5 @@ const MobileLink = ({ item, setMenuOpen }) => (
 );
 
 export default Navbar;
+
+

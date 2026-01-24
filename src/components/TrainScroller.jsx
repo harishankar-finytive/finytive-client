@@ -186,7 +186,7 @@ export default function TrainScroller({
   title = "Categories",
   stationName = "SELF-EY JUNCTION",
   speedSeconds = 25,
-  enableSound = true,
+  enableSound = false,
 }) {
   const trainLength = useMemo(() => items.length * 230 + 950, [items]);
   const ambientRef = useRef(null);

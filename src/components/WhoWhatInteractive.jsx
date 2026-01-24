@@ -74,12 +74,12 @@ export default function WhoWhatInteractive() {
       <div className=" px-4 sm:px-6 lg:px-25 sm:py-16">
         {/* Head */}
         <div className="text-center">
-          <h2 className="relative inline-block text-2xl sm:text-3xl font-bold tracking-tight text-gray-900">
+          <h2 className="relative inline-block text-2xl sm:text-5xl font-bold tracking-tight text-gray-900">
             Who We Are & What We Do
             {/* <span className="absolute left-0 -bottom-1 h-[3px] w-full rounded-full bg-brandOrange/90" /> */}
             <motion.span
               layoutId="underline-whos"
-              className="absolute left-0 bottom-0 h-[3px] w-full bg-brandRed rounded-full"
+              className="absolute left-0 bottom-0 h-[3px] w-full bg-gradient-to-r from-brandOrange to-brandRed rounded-full"
               initial={{ scaleX: 0 }}
               whileInView={{ scaleX: 1 }}
               transition={{ duration: 1, ease: "easeInOut" }}
@@ -176,7 +176,7 @@ export default function WhoWhatInteractive() {
                       <>
                         <Link
                           to={"/contact-us"}
-                          className="inline-flex items-center justify-center rounded-lg bg-brandOrange px-4 py-2.5 text-lg font-semibold text-white transition hover:opacity-90"
+                          className="inline-flex items-center justify-center rounded-lg  px-4 py-2.5 text-lg font-semibold text-white transition hover:opacity-90"
                         >
                           Talk to us
                         </Link>
