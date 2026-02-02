@@ -7,15 +7,15 @@ import ScrollProgressBar from "../components/ScrollProgressBar";
 const MainLayout = () => {
   return (
     <>
-    <ScrollProgressBar />
+      <ScrollProgressBar />
 
-    <ScrollToTop />
-    <Navbar/>
+      <ScrollToTop />
+      <Navbar />
 
-    <div>
-      <Outlet/>
-    </div>
-    <Footer/>
+      <div>
+        <Outlet />
+      </div>
+      <Footer />
     </>
   )
 }

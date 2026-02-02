@@ -4,9 +4,25 @@ import Banner from "../components/banner/Banner";
 // import { homeChefFeatures } from "../data/homeChefFeatures";
 import StickyDiv from "../components/StickyDiv";
 import TrainFoodSection from "../components/TrainSection";
+import TrainScroller from '../components/TrainScroller';
+
 
 import Comparison from "../components/Comparision";
-import chef from"../assets/images/CookHeroImage.webp"
+import chef from"../assets/images/LadyCookBanner.png"
+
+
+const entertainmentServices = [
+    " Tamil nadu food",
+    "Bengali food",
+    "Jains food",
+    "Brahmin food",
+    "Punjabi food",
+    "Rajasthani food",
+    "Kerala food",
+    "Karnataka food",
+    "Andhra Food"
+  
+];
 
 
 const cardDetails = [
@@ -71,7 +87,13 @@ export default function HomeChef() {
         philo="Delivering home-style meals with love and cultural authenticity."
         cardDetails={cardDetails} 
       />
-            <TrainFoodSection />
+            {/* <TrainFoodSection /> */}
+                  <TrainScroller 
+              items={entertainmentServices}
+              title=" Food Categories"
+              stationName="Self-Ey Junction"
+              speedSeconds={28}
+            />
 
    <Comparison />
     </div>

@@ -1,6 +1,6 @@
 import AboutSection from "../components/AboutSection"
 import WhoWhatInteractive from "../components/WhoWhatInteractive"
-
+import OpenFairMarketplace from "../components/Market"
 import Banner from "../components/banner/Banner";
 import Contact from "../assets/images/AboutBanner.png"
 
@@ -30,6 +30,7 @@ const AboutUs = () => {
       />
 
       <AboutSection />
+      <OpenFairMarketplace/>
       <WhoWhatInteractive />
     </div>
   )

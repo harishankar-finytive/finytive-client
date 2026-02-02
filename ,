@@ -1,0 +1,145 @@
+export const seoData = {
+  /* ================= HOME ================= */
+  home: {
+    title: "UniqJobs | Find Your Dream Job",
+    description:
+      "UniqJobs helps you find the best job opportunities quickly and easily.",
+    ogTitle: "UniqJobs – Jobs Made Simple",
+    ogDescription: "Search and apply for jobs with ease on UniqJobs.",
+    ogImage: "https://uniqjobs.com/og-home.png",
+    canonical: "https://uniqjobs.com/",
+    author: "UniqJobs Team",
+  },
+
+  /* ============== TRAINING COURSES ============== */
+  javaFullStack: {
+    title: "Java Full Stack Training | UniqJobs",
+    description:
+      "Java Full Stack Development training with real-time projects and placement support.",
+    canonical: "https://uniqjobs.com/training/java-full-stack",
+    author: "UniqJobs Team",
+  },
+
+  pythonFullStack: {
+    title: "Python Full Stack Training | UniqJobs",
+    description:
+      "Python Full Stack Development course with hands-on practical sessions.",
+    canonical: "https://uniqjobs.com/training/python-full-stack",
+    author: "UniqJobs Team",
+  },
+
+  dotnetFullStack: {
+    title: ".NET Full Stack Training | UniqJobs",
+    description:
+      ".NET Full Stack Development training with industry-focused curriculum.",
+    canonical: "https://uniqjobs.com/training/dotnet-full-stack",
+    author: "UniqJobs Team",
+  },
+
+  dataEngineering: {
+    title: "Data Engineering Training | UniqJobs",
+    description:
+      "Become a Data Engineer with practical training and career guidance.",
+    canonical: "https://uniqjobs.com/training/data-engineering",
+    author: "UniqJobs Team",
+  },
+
+  productionSupport: {
+    title: "Production Support Training | UniqJobs",
+    description:
+      "Learn real-time Production Support with live tools and case studies.",
+    canonical: "https://uniqjobs.com/training/production-support",
+    author: "UniqJobs Team",
+  },
+
+  devopsAws: {
+    title: "DevOps & AWS Training | UniqJobs",
+    description:
+      "DevOps and AWS training with real-time projects and certification support.",
+    canonical: "https://uniqjobs.com/training/devops-aws",
+    author: "UniqJobs Team",
+  },
+
+  /* ================= FACILITIES ================= */
+  classroomFacility: {
+    title: "Classroom Facilities | UniqJobs",
+    description:
+      "Modern classrooms with hands-on learning environment at UniqJobs.",
+    canonical: "https://uniqjobs.com/facilities/classroom",
+    author: "UniqJobs Team",
+  },
+
+  hostelFacility: {
+    title: "Hostel Facilities | UniqJobs",
+    description:
+      "Safe and comfortable hostel facilities for UniqJobs students.",
+    canonical: "https://uniqjobs.com/facilities/hostel",
+    author: "UniqJobs Team",
+  },
+
+  /* ================= PLACEMENTS ================= */
+  placements: {
+    title: "Placements & Career Support | UniqJobs",
+    description:
+      "Placement assistance, interview preparation and career guidance.",
+    canonical: "https://uniqjobs.com/placements",
+    author: "UniqJobs Team",
+  },
+
+  studentReviews: {
+    title: "Student Reviews | UniqJobs",
+    description:
+      "Read reviews and success stories from UniqJobs students.",
+    canonical: "https://uniqjobs.com/placements/student-reviews",
+    author: "UniqJobs Team",
+  },
+
+  interviewQuestions: {
+    title: "Interview Questions & Answers | UniqJobs",
+    description:
+      "Frequently asked interview questions with expert answers.",
+    canonical: "https://uniqjobs.com/placements/interview-questions",
+    author: "UniqJobs Team",
+  },
+
+  faq: {
+    title: "Placement FAQs | UniqJobs",
+    description:
+      "Frequently asked questions about placements and career support.",
+    canonical: "https://uniqjobs.com/placements/faq",
+    author: "UniqJobs Team",
+  },
+
+  uniqVsOthers: {
+    title: "UniqJobs vs Others | Why Choose Us",
+    description:
+      "Compare UniqJobs with other training institutes and see the difference.",
+    canonical: "https://uniqjobs.com/placements/uniq-vs-others",
+    author: "UniqJobs Team",
+  },
+
+  /* ================= OTHERS ================= */
+  blogs: {
+    title: "Tech Blogs & Career Tips | UniqJobs",
+    description:
+      "Latest blogs on software technologies, careers and interviews.",
+    canonical: "https://uniqjobs.com/blogs",
+    author: "UniqJobs Team",
+  },
+
+  trainers: {
+    title: "Our Trainers | UniqJobs",
+    description:
+      "Meet experienced trainers with real-world industry expertise.",
+    canonical: "https://uniqjobs.com/trainers",
+    author: "UniqJobs Team",
+  },
+
+  contact: {
+    title: "Contact Us | UniqJobs",
+    description:
+      "Contact UniqJobs for training details, placements and career guidance.",
+    canonical: "https://uniqjobs.com/contact",
+    author: "UniqJobs Team",
+  },
+};

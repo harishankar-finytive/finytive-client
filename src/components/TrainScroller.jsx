@@ -245,7 +245,7 @@ export default function TrainScroller({
           <div className="absolute -top-6 left-1/4 h-6 w-1 bg-[#44403C]" />
           <div className="absolute -top-6 right-1/4 h-6 w-1 bg-[#44403C]" />
         </div>
-        <p className="mt-4 text-[10px] font-bold text-stone-400 uppercase tracking-[0.2em]">Pull the brass handle for the whistle</p>
+        {/* <p className="mt-4 text-[10px] font-bold text-stone-400 uppercase tracking-[0.2em]">Pull the brass handle for the whistle</p> */}
       </div>
 
       {/* Railway Track Area */}

@@ -11,19 +11,22 @@ export default function CareTaker ()  {
 
 
 const caretakerServices = [
-  "Elderly Care",
-  "Child Nursing",
-  "Post-Op Recovery",
-  "Special Needs Support",
+
+  "Nannies", 
+	"Home Maid", 
+	"Chef", 
+	"Elder Care & Post op Recovery",
   "Physiotherapy",
-  "Dementia Care",
-  "Newborn Care"
+	"Pet Care taker" ,
+	"Pet Grooming" ,
+	"Pet trainer",
+
 ];  return (
     <div>
         <Banner
   badge="Welcome to CareConnect"
-  title="Empowering Quality"
-  highlightedText="Care Taker Services"
+  title="Excellence Home"
+  highlightedText=" Care Taker Services"
   description="Enabling compassionate individuals and homemakers to offer reliable caretaker services online. We help you present your skills professionally, connect with families in need, and grow a trusted caregiving service with ease and confidence."
   buttonText="Join as a Caretaker"
   image={Care}
@@ -58,9 +61,9 @@ const caretakerServices = [
       />
 <TrainScroller 
   items={caretakerServices}
-  title=" CareTaker Categories"
+  title=" Home CareTaker Categories"
   stationName="Self-Ey Junction"
-  speedSeconds={28}
+  speedSeconds={38}
 />
 
 

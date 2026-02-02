@@ -1,42 +1,44 @@
-
-import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { useState } from "react";
+import { NavLink, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
-import { 
-  UtensilsCrossed, 
-  HeartHandshake, 
-  Music, 
-  Car, 
+import {
+  UtensilsCrossed,
+  HeartHandshake,
+  Music,
+  Car,
   Wrench,
-  ChevronDown 
+  ChevronDown,
+  X // Added X for the professional close feel
 } from "lucide-react";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [serviceOpen, setServiceOpen] = useState(false);
+  const location = useLocation(); // 2. Initialize location
 
-  // 1. Rearranged and added Subscription
   const navItems = [
     { to: "/", label: "Home" },
     { to: "about-us", label: "About Us" },
-    // Service is handled separately due to the dropdown logic
     { to: "contact-us", label: "Contact Us" },
     { to: "subscription", label: "Subscription" },
   ];
 
   const serviceItems = [
     { to: "home-chef", label: "Home Chef", icon: <UtensilsCrossed size={18} /> },
-    { to: "care-taker", label: "Caretaker", icon: <HeartHandshake size={18} /> },
-    { to: "event-entertainment", label: "Event Entertainment", icon: <Music size={18} /> },
+    { to: "care-taker", label: "Home Caretaker", icon: <HeartHandshake size={18} /> },
+    { to: "event-entertainment", label: "Event Entertainers", icon: <Music size={18} /> },
     { to: "acting-driver", label: "Acting Driver", icon: <Car size={18} /> },
-    { to: "auto-repair", label: "Instant Auto Mobile Repair", icon: <Wrench size={18} /> },
+    { to: "auto-repair", label: "Instant AutoMobile Repair", icon: <Wrench size={18} /> },
   ];
+
+  // 3. Logic to check if any sub-service is currently active
+  const isServiceActive = serviceItems.some(item => location.pathname.includes(item.to));
 
   const dropdownVariants = {
     hidden: { opacity: 0, y: 15, scale: 0.95 },
-    visible: { 
-      opacity: 1, 
-      y: 0, 
+    visible: {
+      opacity: 1,
+      y: 0,
       scale: 1,
       transition: { duration: 0.2, staggerChildren: 0.05, delayChildren: 0.1 }
     },
@@ -46,19 +48,23 @@ const Navbar = () => {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-gray-100 bg-white/90 backdrop-blur-md">
       <div className="flex items-center justify-between px-4 sm:px-6 lg:px-25 py-4 ">
-        
-        {/* Brand */}
-        <NavLink to="/" className="text-3xl font-black tracking-tighter text-brandOrange">
-          Self<span className="text-brandRed">-Ey</span>
+
+        <NavLink to="/" className="flex flex-col leading-none">
+          <span className="text-3xl font-black tracking-tighter text-brandOrange">
+            Self<span className="text-brandRed">-Ey</span>
+          </span>
+          <span className="text-xs font-medium tracking-wide text-gray-500 mt-1">
+            Talent Meets Opportunity
+          </span>
         </NavLink>
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-2">
           <ul className="flex items-center gap-1 text-base font-medium">
-            
-            {/* Home & About Us */}
             {navItems.slice(0, 2).map((item) => (
-              <li key={item.to}><NavItem item={item} /></li>
+              <li key={item.to}>
+                <NavItem item={item} />
+              </li>
             ))}
 
             {/* Service Dropdown (Middle) */}
@@ -67,11 +73,23 @@ const Navbar = () => {
               onMouseEnter={() => setServiceOpen(true)}
               onMouseLeave={() => setServiceOpen(false)}
             >
-              <div className="cursor-pointer px-5 py-2.5 text-gray-600 hover:text-brandOrange flex items-center gap-2 transition-all">
+              {/* 4. Applied active styling here */}
+              <div
+                className={`cursor-pointer px-5 py-2.5 flex items-center gap-2 transition-all ${isServiceActive ? "text-brandOrange font-bold" : "text-gray-600 hover:text-brandOrange"
+                  }`}
+              >
                 Service
                 <motion.div animate={{ rotate: serviceOpen ? 180 : 0 }}>
-                    <ChevronDown size={18} />
+                  <ChevronDown size={18} />
                 </motion.div>
+
+                {/* Active Indicator Underline for Service */}
+                {isServiceActive && (
+                  <motion.div
+                    layoutId="activeUnderline"
+                    className="absolute bottom-1 left-0 h-[2px] w-full bg-brandOrange"
+                  />
+                )}
               </div>
 
               <AnimatePresence>
@@ -87,9 +105,14 @@ const Navbar = () => {
                       <li key={item.to}>
                         <NavLink
                           to={item.to}
-                          className="flex items-center gap-3 px-5 py-3.5 text-sm font-medium text-gray-700 hover:bg-brandOrange hover:text-white transition-all duration-200 group"
+                          className={({ isActive }) =>
+                            `flex items-center gap-3 px-5 py-3.5 text-sm font-medium transition-all duration-200 group ${isActive ? "bg-orange-50 text-brandOrange" : "text-gray-700 hover:bg-brandOrange hover:text-white"
+                            }`
+                          }
                         >
-                          <span className="text-brandOrange group-hover:text-white transition-colors">{item.icon}</span>
+                          <span className={`${isServiceActive ? "text-brandOrange" : "text-gray-400"} group-hover:text-white`}>
+                            {item.icon}
+                          </span>
                           <span className="group-hover:translate-x-1 transition-transform">{item.label}</span>
                         </NavLink>
                       </li>
@@ -99,9 +122,10 @@ const Navbar = () => {
               </AnimatePresence>
             </li>
 
-            {/* Contact Us & Subscription */}
             {navItems.slice(2).map((item) => (
-              <li key={item.to}><NavItem item={item} /></li>
+              <li key={item.to}>
+                <NavItem item={item} />
+              </li>
             ))}
           </ul>
         </nav>
@@ -109,52 +133,79 @@ const Navbar = () => {
         {/* Mobile Hamburger */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="md:hidden h-11 w-11 rounded-xl bg-gray-50 flex flex-col items-center justify-center gap-1.5"
+          className="md:hidden h-11 w-11 rounded-xl bg-gray-50 flex flex-col items-center justify-center gap-1.5 z-[70]"
         >
-          <motion.span animate={{ rotate: menuOpen ? 45 : 0, y: menuOpen ? 8 : 0 }} className="h-0.5 w-6 bg-brandOrange block" />
-          <motion.span animate={{ opacity: menuOpen ? 0 : 1 }} className="h-0.5 w-6 bg-brandOrange block" />
-          <motion.span animate={{ rotate: menuOpen ? -45 : 0, y: menuOpen ? -8 : 0 }} className="h-0.5 w-6 bg-brandOrange block" />
+          <motion.span
+            animate={{ rotate: menuOpen ? 45 : 0, y: menuOpen ? 8 : 0 }}
+            className="h-0.5 w-6 bg-brandOrange block"
+          />
+          <motion.span
+            animate={{ opacity: menuOpen ? 0 : 1 }}
+            className="h-0.5 w-6 bg-brandOrange block"
+          />
+          <motion.span
+            animate={{ rotate: menuOpen ? -45 : 0, y: menuOpen ? -8 : 0 }}
+            className="h-0.5 w-6 bg-brandOrange block"
+          />
         </button>
       </div>
 
-      {/* Mobile Menu Logic */}
+      {/* Mobile Menu */}
       <AnimatePresence>
         {menuOpen && (
           <>
-<motion.div 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        className="fixed inset-0 bg-slate-900/80 z-[60] md:hidden cursor-pointer"
-        onClick={() => setMenuOpen(false)}
-      >
-        {/* Subtle hint for the user: Clicking anywhere closes the menu */}
-        <div className="absolute top-8 left-5 text-white text-xs font-medium tracking-widest uppercase">
-          Tap to close
-        </div>
-      </motion.div>          
-       <motion.nav 
-              initial={{ x: "100%" }} animate={{ x: 0 }} exit={{ x: "100%" }}
+            {/* Overlay */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 bg-slate-900/80 z-[60] md:hidden cursor-pointer"
+              onClick={() => setMenuOpen(false)}
+            >
+              <div className="absolute top-8 left-5 text-white text-xs font-medium tracking-widest uppercase">
+                Tap to close
+              </div>
+            </motion.div>
+
+            {/* Slide-in Menu */}
+            <motion.nav
+              // initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              // exit={{ x: "100%" }}
               className="fixed right-0 top-0 h-full w-[80%] bg-white z-50 p-8 shadow-2xl"
             >
               <ul className="space-y-6 mt-12 bg-orange-400 p-3">
                 {/* Home & About */}
                 {navItems.slice(0, 2).map((item) => (
-                  <li key={item.to}><MobileLink item={item} setMenuOpen={setMenuOpen} /></li>
+                  <li key={item.to}>
+                    <MobileLink item={item} setMenuOpen={setMenuOpen} />
+                  </li>
                 ))}
-                
+
                 {/* Service Toggle */}
                 <li>
-                  <button onClick={() => setServiceOpen(!serviceOpen)} className="flex w-full justify-between text-2xl font-bold text-gray-800">
-                    Service <ChevronDown className={serviceOpen ? "rotate-180" : ""} />
+                  <button
+                    onClick={() => setServiceOpen(!serviceOpen)}
+                    className="flex w-full justify-between text-2xl font-bold text-gray-800"
+                  >
+                    Service
+                    <ChevronDown
+                      className={`transition-transform ${serviceOpen ? "rotate-180" : ""}`}
+                    />
                   </button>
+
                   {serviceOpen && (
                     <ul className="pl-4 mt-4 space-y-4">
-                      {serviceItems.map(s => (
+                      {serviceItems.map((s) => (
                         <li key={s.to}>
-                           <NavLink to={s.to} onClick={() => setMenuOpen(false)} className="flex items-center gap-3 text-lg text-gray-100">
-                            {s.icon} {s.label}
-                           </NavLink>
+                          <NavLink
+                            to={s.to}
+                            onClick={() => setMenuOpen(false)}
+                            className="flex items-center gap-3 text-lg text-gray-100"
+                          >
+                            {s.icon}
+                            {s.label}
+                          </NavLink>
                         </li>
                       ))}
                     </ul>
@@ -163,7 +214,9 @@ const Navbar = () => {
 
                 {/* Contact & Subscription */}
                 {navItems.slice(2).map((item) => (
-                  <li key={item.to}><MobileLink item={item} setMenuOpen={setMenuOpen} /></li>
+                  <li key={item.to}>
+                    <MobileLink item={item} setMenuOpen={setMenuOpen} />
+                  </li>
                 ))}
               </ul>
             </motion.nav>
@@ -174,34 +227,36 @@ const Navbar = () => {
   );
 };
 
-// Reusable Desktop Link Component
 const NavItem = ({ item }) => (
   <NavLink
     to={item.to}
     className={({ isActive }) =>
-      `relative group px-6 py-2.5 flex items-center justify-center transition-all ${
-        isActive ? "text-[#FF8A00] font-bold" : "text-gray-600 hover:text-[#FF8A00]"
+      `relative group px-6 py-2.5 flex items-center justify-center transition-all ${isActive ? "text-brandOrange font-bold" : "text-gray-600 hover:text-brandOrange"
       }`
     }
   >
-    <span className="relative z-10">{item.label}</span>
+    {({ isActive }) => (
+      <>
+        <span className="relative z-10">{item.label}</span>
 
-    {/* The Sliding Underline */}
-    <div 
-      className="absolute bottom-1 left-0 h-[2px] w-full bg-gradient-to-r from-brandOrange to-brandRed
-                 scale-x-0 transition-transform duration-500 ease-out
-                 origin-right group-hover:origin-left group-hover:scale-x-100" 
-    />
+        {/* Hover underline */}
+        <div className="absolute bottom-1 left-0 h-[2px] w-full bg-gradient-to-r from-brandOrange to-brandRed scale-x-0 transition-transform duration-500 ease-out origin-right group-hover:origin-left group-hover:scale-x-100" />
+
+        {/* Active underline (no nested NavLink) */}
+        <div className={isActive ? "absolute bottom-1 left-0 h-[2px] w-full bg-brandOrange" : "hidden"} />
+      </>
+    )}
   </NavLink>
 );
 
-// Reusable Mobile Link Component
 const MobileLink = ({ item, setMenuOpen }) => (
-  <NavLink to={item.to} onClick={() => setMenuOpen(false)} className="text-2xl font-bold text-gray-800 block">
+  <NavLink
+    to={item.to}
+    onClick={() => setMenuOpen(false)}
+    className={({ isActive }) => `text-2xl font-bold block transition-colors ${isActive ? "text-white" : "text-gray-800"}`}
+  >
     {item.label}
   </NavLink>
 );
 
 export default Navbar;
-
-

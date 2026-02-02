@@ -17,29 +17,33 @@ import { Link } from "react-router-dom";
 const TABS = [
   {
     key: "what",
-    label: "Our Identity",
+    label: "For Service Providers ",
     tagline: "A community of doers, built on trust.",
     bullets: [
-      "Mission-first team focused on self-empowerment and livelihood at scale.",
-      "Champions of homemakers and independent professionals—giving them a real marketplace.",
-      "Obsessed with authenticity, hygiene, and reliable service—every time.",
-      "Growing beyond food to welcome diverse skills and meaningful micro-entrepreneurs.",
+
+      "We offer a platform to showcase skills and services",
+"Vendors set their own prices—we do not fix rates",
+"Gain visibility through ratings and customer trust",
+"Earn independently with dignity and flexibility",
+
     ],
     paragraph:
-      "We’re a mission-driven team building a trusted community where homemakers and local professionals become micro-entrepreneurs. Rooted in authenticity and hygiene, we make it easy to showcase skills, earn fairly, and serve people who value genuine, heartfelt work.",
+    "We’re a mission-driven team building a trusted community where homemakers and skilled local service providers grow as self-reliant micro-entrepreneurs. Rooted in authenticity, hygiene, and care, we support home chefs, caretakers, event entertainers, acting drivers, and instant automobile repair professionals by giving them a platform to showcase their skills, earn fairly, and build trust through genuine, reliable, and quality-driven work.",
   },
   {
     key: "who",
-    label: "Our Impact",
+    label: "For Customers",
     tagline: "Home-grown skills. Real opportunities.",
     bullets: [
-      "Connect people who miss “home” with verified home chefs and local service talent.",
-      "Make discovery simple with transparent pricing, reviews, and secure booking.",
-      "Empower women homemakers and independent workers to turn skills into steady income.",
-      "Ensure quality with verification, hygiene guidance, and real feedback loops.",
+	"Choose from a wide range of local services",
+"Compare vendors based on price, ratings, and experience",
+"Access trusted, community-based service providers",
+"Enjoy transparency and freedom of choice",
+
+
     ],
     paragraph:
-      "We connect people who miss the warmth of home with trusted home chefs and nearby service talent. From homely meals to everyday help, Self-Ey keeps things simple and transparent—while enabling skilled individuals to earn with dignity and consistency.",
+    "We connect people seeking comfort, care, and reliable help with trusted home chefs and skilled local service providers. From homely meals and caregiving to event support, acting drivers, and instant automobile repairs, Self-Ey keeps every service simple, transparent, and dependable—while supporting local talent that serves with sincerity and heart.",
   },
 ];
 
@@ -77,18 +81,9 @@ export default function WhoWhatInteractive() {
           <h2 className="relative inline-block text-2xl sm:text-5xl font-bold tracking-tight text-gray-900">
             Who We Are & What We Do
             {/* <span className="absolute left-0 -bottom-1 h-[3px] w-full rounded-full bg-brandOrange/90" /> */}
-            <motion.span
-              layoutId="underline-whos"
-              className="absolute left-0 bottom-0 h-[3px] w-full bg-gradient-to-r from-brandOrange to-brandRed rounded-full"
-              initial={{ scaleX: 0 }}
-              whileInView={{ scaleX: 1 }}
-              transition={{ duration: 1, ease: "easeInOut" }}
-              style={{ transformOrigin: "left" }}
-            />
           </h2>
           <p className="mx-auto mt-3 max-w-2xl text-lg sm:text-lg text-gray-700">
-            Explore our mission and the value we create—for customers and
-            creators alike.
+           At Self-Ey, we connect skilled service providers with customers who are genuinely looking for reliable and quality services.
           </p>
         </div>
 

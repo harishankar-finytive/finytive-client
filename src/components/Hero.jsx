@@ -116,8 +116,8 @@
 
 
 import { MotionConfig, motion } from "framer-motion";
-/* Replace your image import with your video path */
-import heroVideo from "../assets/images/hero-background.mp4"; 
+/* Replace your image import with your video path bg-[#d8d6d6]*/
+import heroVideo from "../assets/images/v3.mp4"; 
 
 /* Variants */
 const container = {
@@ -141,7 +141,7 @@ const item = {
 export default function Hero() {
   return (
     <MotionConfig reducedMotion="user">
-      <main className="relative overflow-hidden px-4 sm:px-6 lg:px-25 sm:pt-0 sm:py-5">
+      <main className="relative overflow-hidden bg-white  px-4 sm:px-6 lg:px-25 sm:pt-0 sm:py-5 ">
         <section className="grid min-h-[calc(100vh-180px)] grid-cols-1 items-center gap-10 py-10 lg:grid-cols-2">
           {/* Left */}
           <motion.div
@@ -155,6 +155,7 @@ export default function Hero() {
               className="relative inline-block font-primary text-base text-brandOrange font-medium pb-1 mb-1"
               variants={item}
             >
+              {/* EMPOWERING SELF-EMPLOYMENT */}
               EMPOWERING SELF-EMPLOYMENT
               <motion.span
                 className="absolute left-0 bottom-0 h-[3px] w-full bg-gradient-to-r from-brandOrange to-brandRed rounded-full origin-left"
@@ -185,8 +186,8 @@ export default function Hero() {
 
           {/* Right: Floating Video + soft blobs */}
           <div className="sm:absolute right-10 z-10">
-            <div className="pointer-events-none absolute -right-6 top-8 h-40 w-40 rounded-full bg-amber-300/30 blur-2xl -z-10" />
-            <div className="pointer-events-none absolute -bottom-4 -left-4 h-32 w-32 rounded-full bg-rose-300/30 blur-2xl -z-10" />
+            <div className="pointer-events-none absolute -right-6 top-8 h-40 w-40 rounded-full bg-amber-300/30 blur-2xl z-10" />
+            <div className="pointer-events-none absolute -bottom-4 -left-4 h-32 w-32 rounded-full bg-rose-300/30 blur-2xl z-10" />
 
             <div className="relative mx-auto w-full will-change-transform transform-gpu">
               {/* Floating Animation Wrapper */}
@@ -197,7 +198,7 @@ export default function Hero() {
                   muted
                   loop
                   playsInline
-                  className="sm:h-100 sm:w-130 object-cover select-none"
+                  className="sm:h-100 sm:w-150 object-cover  select-none"
                   style={{
                     transform: "translateZ(0)",
                     willChange: "transform"

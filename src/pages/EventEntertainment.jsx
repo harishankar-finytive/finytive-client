@@ -18,6 +18,10 @@ const entertainmentServices = [
   "Dance Troupes",
   "Professional Mehndi Artist",
   "Photo & Video Booths",
+  	"Mimicry Artists", 
+	"Anchors / Emcees",
+	"Clowns & mascots"
+
   
 ];
 
@@ -57,7 +61,7 @@ const entertainmentServices = [
       />
       <TrainScroller 
   items={entertainmentServices}
-  title="Self-Ey Event-Entertainment Categories"
+  title="Self-Ey Event-Entertainers Categories"
   stationName="Self-Ey Junction"
   speedSeconds={28}
 />

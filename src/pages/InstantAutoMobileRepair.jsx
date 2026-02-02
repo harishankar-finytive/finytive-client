@@ -10,15 +10,16 @@ import stickeyImg from "../assets/images/auto-driving.png";
 export default function InstantAutoMobileRepair ()  {
 
 const mobileRepairServices = [
+    "Inspection and Diagnosis",
   "Engine Diagnostics",
   "Brake & Clutch Repair",
   "Battery Jumpstart",
-  "Flat Tyre Support",
+  "Puncture Support",
   "Oil & Filter Change",
   "Electrical Fixes",
   "Suspension Work",
   "Breakdown Assistance",
-  "Pre-Purchase Inspection"
+  "Inspection and Diagnosis"
 ];
 
   return (
@@ -28,7 +29,7 @@ const mobileRepairServices = [
   title="Drive Your Auto and"
   highlightedText="Earn Independently"
   description="Supporting skilled technicians to offer fast, on-demand mobile repair services through digital platforms. We help you showcase expertise, reach customers easily, and build a steady income with professionalism and trust."
-  buttonText="Start Driving Today"
+  buttonText="Offer repairs instantly"
   image={auto} 
   imageSize="w-88"
   // replace with auto-driver image if available
@@ -58,10 +59,10 @@ const mobileRepairServices = [
 
 <TrainScroller 
   items={mobileRepairServices}
-  title="On-Demand Repair Specialities"
-  subtitle="Expert mechanics arriving at your location with a full toolkit."
+  title="On-Demand Repair Specialities 🏍️🚗🛺🚚"
+  subtitle="Expert mechanics arriving at your location with a full toolkit. "
   stationName="Self-Ey Junction"
-  speedSeconds={28} 
+  speedSeconds={32} 
 />
     </div>
   )
